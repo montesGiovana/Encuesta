@@ -1,0 +1,32 @@
+.sizePreguntas{
+	font-family: 'Nexa';
+    font-size: 5rem;
+    text-align: center;
+}
+
+.btnancho{
+    width: 250px;
+    height: 100px;
+}
+
+.textbutton{
+    font-family: 'Nexa';
+    line-height: 80px;
+    font-size: 3rem;
+}
+
+@font-face{
+    font-family: Nexa;
+    src: url('../letras/Nexa_Bold.otf');
+}
+
+@font-face{
+    font-family: Nexa Light;
+    src: url('../letras/Nexa_Light.otf');
+}
+
+
+
+
+
+

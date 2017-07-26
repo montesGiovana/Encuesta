@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html ng-app="encuestaModule">
+    
+    <head>
+        <meta lang="es" charset="utf-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <!--<link href="css/estilos.css" rel="stylesheet">-->
+        <link href="css/estilos2.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="container" ng-controller="encuestaController" ng-init="activarBienvenida()">
+            <form id="encuesta" action="#">
+                 <section ng-if="bienvenida" class="">
+                    <!--Logo Principal-->
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 spaceSection">
+                            <img src="images/Logo1.png" class="logBienvenida">
+                        </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[0].visible" class="">
+                    <div class="form-group">
+                        <div class="row spaceSection2">
+                            <!--Pregunta-->
+                            <div class="col-lg-12 sizePreguntas " id="busca">
+                                <label>{{ encuesta[0].pregunta }}</label>
+                            </div>
+                            <!--Respuestas-->
+                            <div class="col-lg-12">
+                                <a type="button" id="Vivir" class="btn btn-primary btn-lg btn-block active textbutton buttoncenter" ng-click="siguientePregunta(1,0,$event)">VIVIR</a>
+                                <a type="button"  id="Invertir" class="btn btn-primary btn-lg btn-block active textbutton buttoncenter" ng-click="siguientePregunta(1,0,$event)">INVERTIR</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[1].visible" class="">
+                     <div class="form-group">
+                        <div class="row spaceSection2">
+                            <!--Pregunta-->
+                            <div class="col-lg-12 sizePreguntas" id="medio">
+                                 <label>{{ encuesta[1].pregunta }}</label>
+                            </div>
+
+                            <!--Respuestas-->
+                            <div class="col-lg-12 buttoncenterRadio">
+                                <div class="col-xs-6 col-sm-3 ">
+                                    <a type="radio" id="Metro_Cubico" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">METRO CÚBICO</a>
+                                    <a type="radio" id="Web_We" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">WEB WE</a>
+                                    <a type="radio" id="Espectacular" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">ESPECTACULAR</a>
+                                    <a type="radio" id="Volantes" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">VOLANTES</a>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 ">
+                                    <a type="radio" id="Inmuebles" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio " ng-click="siguientePregunta(2,1,$event)">INMUEBLES</a>
+                                    <a type="radio" id="Otras_Web" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">OTRAS WEB</a>
+                                    <a type="radio" id="Tapital/Caballete" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">TAPIAL O CABALLETE</a>
+                                    <a type="radio" id="Broker" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">BROKER</a>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 ">
+                                    <a type="radio" id="Lamudi" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">LAMUDI</a>
+                                    <a type="radio" id="Reforma" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">REFORMA</a>
+                                    <a type="radio" id="CentrosComerciales" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">CENTROS COMERCIALES</a>
+                                    <a type="radio" id="Referido" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">REFERIDO</a>
+                                </div>
+                                <div class="col-xs-6 col-sm-3">
+                                    <a type="radio" id="Propetari" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">PROPERATI</a>
+                                    <a type="radio" id="Revista" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">REVISTA</a>
+                                    <a type="radio" id="Pilas" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">PILAS</a>
+                                    <a type="radio" id="Otros" class="btn btn-primary btn-lg btn-block active textbutton buttonRadio" ng-click="siguientePregunta(2,1,$event)">OTROS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[2].visible" class="">
+                     <div class="form-group">
+                         <div class="row spaceSection2">
+                             <!--Pregunta-->
+                             <div class="col-lg-12 sizePreguntas" id="rango">
+                                 <label>{{ encuesta[2].pregunta }}</label>
+                             </div>
+
+                            <!--Respuestas-->
+                             <div class="col-lg-12" id="">
+                                 <div class="col-sm-5 col-md-6">
+                                    <a type="button" id="18-24" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(3,2,$event)">18-24</a>
+                                    <a type="button"  id="35-44" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(3,2,$event)">35-44</a>
+                                    <a type="button" id="55-64" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(3,2,$event)">55-64</a>
+                                 </div>
+
+                                 <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">
+                                    <a type="button" id="25-34" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(3,2,$event)">25-34</a>
+                                    <a type="button" id="45-54" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(3,2,$event)">45-54</a>
+                                    <a type="button" id="+65" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(3,2,$event)">+65</a>
+                                 </div>
+                             </div>
+                         </div> 
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[3].visible" class="">
+                     <div class="form-group">
+                         <div class="row spaceSection2">
+                            <!--Pregunta-->
+                            <div class="col-lg-12 sizePreguntas" id="edoCivil">
+                                <label>{{ encuesta[3].pregunta }}</label>
+                            </div>
+                            <!--Respuestas-->
+                            <div class="col-lg-12">
+                                <a type="button" id="Casado" class="btn btn-primary btn-lg btn-block active textbutton buttoncenter" ng-click="siguientePregunta(4,3,$event)">CASADO</a>
+                                <a type="button" id="Soltero" class="btn btn-primary btn-lg btn-block active textbutton buttoncenter" ng-click="siguientePregunta(4,3,$event)">SOLTERO</a>
+                            </div>
+                         </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[4].visible" class="">
+                     <div class="form-group">
+                         <div class="row spaceSection2">
+                            <!--Pregunta-->
+                            <div class="col-lg-12 sizePreguntas" id="hijos">
+                                <label>{{ encuesta[4].pregunta }}</label>
+                            </div>
+                            <!--Respuestas-->
+                             <div class="col-sm-5 col-md-6">
+                                <a type="button" id="1" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(5,4,$event)">1</a>
+                                <a type="button" id="No" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(5,4,$event)">NO</a>
+                             </div>
+                             <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0 ">
+                                <a type="button" id="2" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(5,4,$event)">2</a>
+                                <a type="button" id="+3" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(5,4,$event)">+3</a>
+                             </div>
+                         </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[5].visible" class="">
+                     <div class="form-group">
+                         <div class="row spaceSection2">
+                             <!--Pregunta-->
+                             <div class="col-lg-12 sizePreguntas" id="rangoHijos">
+                                 <label>{{ encuesta[5].pregunta }}</label>
+                             </div>
+                             <!--Respuestas-->
+                             <div class="col-sm-5 col-md-6">
+                                 <a type="button" id="1-" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(6,5,$event)">1-</a>
+                                 <a type="button" id="5-11" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(6,5,$event)">5-11</a>
+                                 <a type="button" id="+18" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterLeft buttoncenter2" ng-click="siguientePregunta(6,5,$event)">+18</a>
+                             </div>
+                             <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">
+                                 <a type="button" id="1-4" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(6,5,$event)">1-4</a>
+                                 <a type="button" id="12-18" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(6,5,$event)">12-18</a>
+                                 <a type="button" id="No" class="btn btn-primary btn-lg btn-block active textbutton buttoncenterRight buttoncenter2" ng-click="siguientePregunta(6,5,$event)">NO</a>
+                             </div>
+                         </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[6].visible" class="">
+                     <div class="form-group">
+                        <!--Pregunta-->
+                         <div class="row spaceSection2">
+                            <div class="sizePreguntas" id="opinionDepto">
+                              <label>{{ encuesta[6].pregunta }}</label>
+                            </div>
+                        </div>
+                        <!--Respuestas-->
+                        <div>
+                            <img type="button" id="Muy_bien" class="margenCaritas pull-left img-responsive" src="images/MuyBien.png" alt="Muy Bien" ng-click="siguientePregunta(7,6,$event)">
+
+                            <img type="button" id="Bien" class=" margenCaritas pull-left img-responsive" src="images/Bien.png" alt="Bien" ng-click="siguientePregunta(7,6,$event)">
+
+                            <img type="button" id="Regular" class="margenCaritas pull-left img-responsive" src="images/Regular.png" alt="Regular" ng-click="siguientePregunta(7,6,$event)">
+
+                            <img type="button" id="Mal" class="margenCaritas pull-left img-responsive" src="images/Mal.png" alt="Mal" ng-click="siguientePregunta(7,6,$event)">
+
+                            <img type="button" id="Muy_mal" class="margenCaritas pull-left img-responsive" src="images/MuyMal.png" alt="Muy Mal" ng-click="siguientePregunta(7,6,$event)">
+                        </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[7].visible" class="">
+                     <div class="form-group spaceSection2">
+                            <!--Pregunta-->
+                            <div>
+                                <div class="sizePreguntas" id="atencion">
+                                    <label>{{ encuesta[7].pregunta }}</label>
+                                </div>
+                            </div>
+    
+                            <!--Respuestas-->
+                            <div>
+                                <img type="button" id="Muy_bien" class="margenCaritas pull-left img-responsive" src="images/MuyBien.png" alt="Muy Bien" ng-click="siguientePregunta(8,7,$event)">
+
+                                <img type="button" id="Bien" class=" margenCaritas pull-left img-responsive" src="images/Bien.png" alt="Bien" ng-click="siguientePregunta(8,7,$event)">
+
+                                <img type="button" id="Regular" class="margenCaritas pull-left img-responsive" src="images/Regular.png" alt="Regular" ng-click="siguientePregunta(8,7,$event)">
+
+                                <img type="button" id="Mal" class="margenCaritas pull-left img-responsive" src="images/Mal.png" alt="Mal" ng-click="siguientePregunta(8,7,$event)">
+
+                                <img type="button" id="Muy_mal" class="margenCaritas pull-left img-responsive" src="images/MuyMal.png" alt="Muy Mal" ng-click="siguientePregunta(8,7,$event)">
+                            </div>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[8].visible" class="">
+                     <div class="form-group">
+                         <div class="row spaceSection2">
+                             <!--Pregunta-->
+                            <div class="sizePreguntas" id="Visita">
+                                <label>{{ encuesta[8].pregunta }}</label>
+                            </div>
+
+                            <!--Respuestas-->
+                            <div class="col-md-12" id="">
+                                <input type="text" class="boxComentario btn-lg" ng-model="comentario">
+                            </div>
+
+                            <div class="col-lg-12 text">
+                                <label>ESCRIBA POR FAVOR LA COLONIA O DELEGACIÓN</label>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <button class="btn-lg" ng-click="activarFinal()">Siguiente</button>
+                            </div>
+                         </div>
+                    </div>
+                </section>
+
+                <section ng-if="final" class="">
+                     <div class="form-group">
+                            <!--Pregunta-->
+                    <div class="spaceSection2">
+                        <img src="images/Logo1.png" class="center-block img-responsive" width="40%">
+                        <label class="gracias">GRACIAS</label>
+                    </div>
+                </section>
+
+                <section ng-if="encuesta[9].visible" class="">
+                     <div class="form-group">
+                         <div class="spaceSection2">
+                             <!--Pregunta-->
+                             <div class="sizePreguntas" id="Recomendacion">
+                                 <label>{{ encuesta[9].pregunta }}</label>
+                             </div>
+                             <!--Respuestas-->
+                             <div class="">
+                                 <a type="button" id="Si" class="btn btn-primary btn-lg btn-block active textbutton buttoncenter" ng-click="enviarRespuestas()">Si</a>
+                                 <a type="button" id="No" class="btn btn-primary btn-lg btn-block active textbutton buttoncenter" ng-click="enviarRespuestas()">No</a>
+                             </div> 
+                         </div>
+                    </div>
+                </section>
+                
+            </form>   
+        </div>
+        
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/controller.js"></script>
+        <!--<script type="text/javascript" src="js/enviocorreo.js"></script>-->
+        
+    </body>
+    
+</html>
